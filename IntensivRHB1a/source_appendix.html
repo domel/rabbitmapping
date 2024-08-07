@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapping list</title>
     <link rel="stylesheet" href="../style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 </head>
 <body>
 <h1>Appendix: source tables</h1>
@@ -201,5 +202,18 @@
 </table>
 
 
+<script>
+jQuery.moveColumn = function (table, from, to) {
+    var rows = jQuery('tr', table);
+    var cols;
+    rows.each(function() {
+        cols = jQuery(this).children('th, td');
+        cols.eq(from).detach().insertBefore(cols.eq(to));
+    });
+}
+
+var tbl = jQuery('table');
+jQuery.moveColumn(tbl, 1, 0);
+</script>
 </body>
 </html>
